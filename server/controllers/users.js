@@ -23,8 +23,6 @@ export const createUser = async (req, res) => {
 };
 
 export const signIn = async (req, res) => {
-  console.log("logowanie..");
-
   const { body } = req;
   const { username, password } = body;
 
@@ -32,7 +30,7 @@ export const signIn = async (req, res) => {
     return res.send({
       info: {
         success: false,
-        message: "Błąd: wiersze nie mogą być puste!",
+        message: "Wiersze nie mogą być puste!",
       },
     });
   } else {
