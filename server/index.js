@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import users from "./routes/users.js";
+
 dotenv.config();
 
 const config = {
@@ -27,6 +29,8 @@ app.use(
 );
 
 app.use(cors());
+
+app.use("/", users);
 
 mongoose
   .connect(process.env.CONNECTION_URL, config)
