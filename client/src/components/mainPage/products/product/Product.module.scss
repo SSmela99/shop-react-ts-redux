@@ -1,0 +1,37 @@
+@import "./src/styles/index.module.scss";
+
+.product {
+    @include dark-border(1px);
+    background-color: #fff;
+    margin: 20px;
+    max-width: 400px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-size: 20px;
+        height: 75px;
+        overflow: hidden;
+    }
+
+    .image {
+        width: 100%;
+        height: 350px;
+        margin: 20px 0;
+    }
+
+    .description {
+        max-height: 145px;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .bottomProduct {
+        width: 100%;
+        color: red;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

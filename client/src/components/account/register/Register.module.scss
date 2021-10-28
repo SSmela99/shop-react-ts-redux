@@ -1,0 +1,5 @@
+@import "./src/styles/index.module.scss";
+
+.registerContainer {
+    @include responsive-page;
+}
