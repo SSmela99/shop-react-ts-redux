@@ -1,0 +1,8 @@
+@import "./src/styles/index.module.scss";
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: between;
+}
+

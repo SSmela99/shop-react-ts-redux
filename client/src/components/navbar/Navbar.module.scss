@@ -1,0 +1,73 @@
+@import "./src/styles/index.module.scss";
+
+.nav {
+    @include basic-colors;
+    height: 100px;
+    transition: .5s;
+
+    @include sm {
+        height: 75px;
+    }
+
+    .navContainer {
+        transition: .5s;
+    }
+
+    .logo {
+        width: 65px;
+        height: 65px;
+        transition: .5s;
+
+        @include xl {
+            width: 55px;
+            height: 55px;
+        }
+
+        @include md {
+            width: 50px;
+            height: 50px;
+        }
+
+        @include sm {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .header1 {
+        @include header1;
+        @include sm {
+            max-width: 80px;
+        }
+    }
+
+    .nav_menu {
+        @include center-item;
+
+        .nav_menu_icon {
+            font-size: 30px;
+            transition: .5s;
+
+            @include md {
+                font-size: 26px;
+            }
+
+            @include sm {
+                font-size: 20px;
+            }
+        }
+
+        .nav_menu_text {
+            font-size: 18px;
+            transition: .5s;
+
+            @include lg {
+                font-size: 16px;
+            }
+
+            @include sm {
+                font-size: 14px;
+            }
+        }
+    }
+}
