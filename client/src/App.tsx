@@ -6,7 +6,13 @@ import { actionCreators } from "./state";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { Navbar, MainPage, Register } from "./components/Components";
+import {
+  Navbar,
+  MainPage,
+  Register,
+  SingleProductPage,
+  Cart,
+} from "./components/Components";
 
 import { State } from "./state";
 
@@ -37,6 +43,12 @@ const App = () => {
           </Route>
           <Route exact path="/register">
             <Register />
+          </Route>
+          <Route exact path="/product/:id">
+            <SingleProductPage />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
           </Route>
         </Switch>
       </Router>

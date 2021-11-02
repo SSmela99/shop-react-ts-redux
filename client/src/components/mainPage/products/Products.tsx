@@ -23,6 +23,7 @@ const Products = () => {
 
   return (
     <div className={styles.productsGrid}>
+      {/* @ts-ignore */}
       {products.map((product: any) => (
         <Product product={product} key={product.id} />
       ))}
