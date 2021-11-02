@@ -32,10 +32,12 @@ const Navbar = () => {
               <p className={styles.nav_menu_text}>Zaloguj się</p>
             </div>
           </Link>
-          <div className="text-center">
-            <Cart className={styles.nav_menu_icon} />
-            <p className={styles.nav_menu_text}>Koszyk</p>
-          </div>
+          <Link to="/cart">
+            <div className="text-center">
+              <Cart className={styles.nav_menu_icon} />
+              <p className={styles.nav_menu_text}>Koszyk</p>
+            </div>
+          </Link>
         </ul>
       </div>
     </div>

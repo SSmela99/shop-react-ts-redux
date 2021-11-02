@@ -1,0 +1,30 @@
+@import "./src/styles/index.module.scss";
+
+.mainPageContainer {
+    @include responsive-page;
+}
+
+
+.products {
+    min-height: inherit;
+
+    .product {
+        @include dark-border(1px);
+
+        .image {
+            width: 200px;
+            margin-right: 50px;
+        }
+        
+        .description {
+           font-size: 20px;
+           font-weight: 300;
+           line-height: 33px;
+        }
+
+        .btn {
+            @include primary-btn;
+        }
+    }
+}
+

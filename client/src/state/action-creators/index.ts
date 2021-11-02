@@ -18,6 +18,17 @@ export const fetchProducts = () => async (dispatch: Dispatch<Action>) => {
   }
 };
 
+export const fetchProduct =
+  (id: string) => async (dispatch: Dispatch<Action>) => {
+    try {
+      const { data } = await api.fetchProduct(id);
+
+      dispatch({ type: ActionType.FETCH_ONE, payload: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 export const fetchCart = () => {
   return (dispatch: Dispatch<Action>) => {
     const cart = JSON.parse(localStorage.getItem("cart")!) || [];

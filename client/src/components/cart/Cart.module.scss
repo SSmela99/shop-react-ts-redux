@@ -1,0 +1,27 @@
+@import "./src/styles/index.module.scss";
+
+.mainPageContainer {
+    @include responsive-page;
+}
+
+.cartContainer {
+    min-height: inherit;
+
+    .productContainer {
+        min-height: 100px;
+    }
+
+    .title {
+        max-width: 500px;
+    }
+
+    .image {
+        width: 50px;
+        margin-right: 20px;
+    }
+
+    .btns {
+       font-size: 30px; 
+       flex: 1;
+    }
+}

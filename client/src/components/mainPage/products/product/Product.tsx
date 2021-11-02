@@ -4,13 +4,14 @@ import { IProduct } from "../Products";
 import clsx from "clsx";
 import styles from "./Product.module.scss";
 
-import { useDispatch, useSelector } from "react-redux";
-import { State, actionCreators } from "../../../../state";
+import { useDispatch } from "react-redux";
+import { actionCreators } from "src/state";
 import { bindActionCreators } from "redux";
+
+import { Link } from "react-router-dom";
 
 const Product: React.FC<IProduct> = ({ product }: IProduct) => {
   const dispatch = useDispatch();
-  const cart = useSelector((state: any) => state.cart);
 
   const { addToCart, fetchCart } = bindActionCreators(actionCreators, dispatch);
 
@@ -21,7 +22,9 @@ const Product: React.FC<IProduct> = ({ product }: IProduct) => {
 
   return (
     <div className={clsx(styles.product)}>
-      <h1 className={styles.title}>{product.title}</h1>
+      <Link to={`/product/${product.id}`}>
+        <h1 className={styles.title}>{product.title}</h1>
+      </Link>
       <img src={product.image} alt={product.title} className={styles.image} />
       <p className={styles.description}>{product.description}</p>
       <div className={styles.bottomProduct}>
@@ -32,7 +35,6 @@ const Product: React.FC<IProduct> = ({ product }: IProduct) => {
         >
           Do koszyka!
         </button>
-        <button onClick={() => console.log(cart)}>pokaz koszyk</button>
       </div>
     </div>
   );
