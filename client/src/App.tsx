@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state";
 
@@ -8,12 +8,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Navbar, MainPage, Register } from "./components/Components";
 
+import { State } from "./state";
+
 const App = () => {
   const dispatch = useDispatch();
 
-  const { fetchProducts } = bindActionCreators(actionCreators, dispatch);
+  const cart = useSelector((state: State) => state.cart);
+
+  const { fetchProducts, fetchCart } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
 
   useEffect(() => {
+    fetchCart();
     fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -25,6 +33,7 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <MainPage />
+            <button onClick={() => console.log(cart)}>cart</button>
           </Route>
           <Route exact path="/register">
             <Register />

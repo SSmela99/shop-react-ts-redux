@@ -29,9 +29,19 @@
 
     .bottomProduct {
         width: 100%;
-        color: red;
         margin-top: 20px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        .price {
+            color: $dark-color;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .primary_btn {
+            @include primary-btn;
+        }
     }
 }

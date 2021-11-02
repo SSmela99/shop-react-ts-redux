@@ -4,4 +4,14 @@ interface GetProducts {
   payload: object[];
 }
 
-export type Action = GetProducts;
+interface getCart {
+  type: ActionType.FETCH_CART;
+  payload: [];
+}
+
+interface AddToCart {
+  type: ActionType.ADD_TO_CART;
+  payload: object;
+}
+
+export type Action = GetProducts | getCart | AddToCart;
