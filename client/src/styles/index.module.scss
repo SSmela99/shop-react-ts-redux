@@ -112,3 +112,10 @@ $light-color: #E0E1DD;
 @mixin dark-border($size) {
     border: $size solid $dark-color;
 }
+
+@mixin primary-btn {
+    background-color: $dark-color;
+    color: $light-color;
+    border: none;
+    padding: 10px 15px;
+}
