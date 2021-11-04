@@ -8,7 +8,11 @@ import { BsCart as Cart } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 const Navbar = () => {
+  const cart = useSelector((state: any) => state.cart);
+
   return (
     <div className={clsx("w-100 position-fixed top-0 start-0", styles.nav)}>
       <div
@@ -33,9 +37,10 @@ const Navbar = () => {
             </div>
           </Link>
           <Link to="/cart">
-            <div className="text-center">
+            <div className="text-center position-relative">
               <Cart className={styles.nav_menu_icon} />
               <p className={styles.nav_menu_text}>Koszyk</p>
+              <div className={styles.cartBundle}>{`${cart.length}`}</div>
             </div>
           </Link>
         </ul>

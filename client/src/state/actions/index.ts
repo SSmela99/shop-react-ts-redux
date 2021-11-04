@@ -4,11 +4,6 @@ interface GetProducts {
   payload: object[];
 }
 
-interface GetProduct {
-  type: ActionType.FETCH_ONE;
-  payload: object;
-}
-
 interface getCart {
   type: ActionType.FETCH_CART;
   payload: [];
@@ -19,4 +14,19 @@ interface AddToCart {
   payload: object;
 }
 
-export type Action = GetProducts | getCart | AddToCart | GetProduct;
+interface RemoveFromCart {
+  type: ActionType.REMOVE_FROM_CART;
+  payload: object;
+}
+
+interface ClearCart {
+  type: ActionType.CLEAR_CART;
+  payload: object;
+}
+
+export type Action =
+  | GetProducts
+  | getCart
+  | AddToCart
+  | RemoveFromCart
+  | ClearCart;

@@ -3,6 +3,7 @@ import { Dispatch } from "redux";
 import { Action } from "../actions/index";
 
 import * as api from "../../api";
+
 interface Product {
   id: number;
   count: number;
@@ -17,17 +18,6 @@ export const fetchProducts = () => async (dispatch: Dispatch<Action>) => {
     console.log(error);
   }
 };
-
-export const fetchProduct =
-  (id: string) => async (dispatch: Dispatch<Action>) => {
-    try {
-      const { data } = await api.fetchProduct(id);
-
-      dispatch({ type: ActionType.FETCH_ONE, payload: data });
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
 export const fetchCart = () => {
   return (dispatch: Dispatch<Action>) => {
@@ -59,5 +49,37 @@ export const addToCart = (product: Product) => {
 
   return (dispatch: Dispatch<Action>) => {
     dispatch({ type: ActionType.ADD_TO_CART, payload: product });
+  };
+};
+
+export const removeFromCart = (product: Product) => {
+  let cart = JSON.parse(localStorage.getItem("cart")!) || [];
+  const exist = cart.find((x: Product) => x.id === product.id);
+
+  const pos = cart.indexOf(exist);
+
+  console.log(pos);
+  if (exist.count === 1) {
+    const newCart = cart.filter((x: Product) => x.id !== product.id);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+  } else {
+    const newCart = cart.map((x: Product) =>
+      x.id === product.id ? { ...exist, count: exist.count - 1 } : x
+    );
+    localStorage.setItem("cart", JSON.stringify(newCart));
+  }
+
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({ type: ActionType.REMOVE_FROM_CART, payload: cart });
+  };
+};
+
+export const deleteFromCart = (product: Product) => {
+  const cart = JSON.parse(localStorage.getItem("cart")!) || [];
+  const newCart = cart.slice().filter((x: Product) => x.id !== product.id);
+
+  localStorage.setItem("cart", JSON.stringify(newCart));
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({ type: ActionType.CLEAR_CART, payload: newCart });
   };
 };

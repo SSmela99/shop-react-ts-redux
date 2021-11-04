@@ -7,21 +7,58 @@
 .cartContainer {
     min-height: inherit;
 
+    .border {
+        @include dark-border(1px)
+    }
+
     .productContainer {
         min-height: 100px;
+
+        @include md {
+            margin: 40px 0;
+            padding: 10px 0;
+        }
     }
 
     .title {
-        max-width: 500px;
+        text-overflow: ellipsis;
+        overflow: hidden; 
+        white-space: nowrap;
+        flex: 1;
+
+        @include md {
+            margin: 20px 0;
+            white-space: normal;
+        }
     }
 
     .image {
         width: 50px;
         margin-right: 20px;
+
+        @include md {
+            margin-right: 0;
+            width: 80px;
+            height: 100px;
+        }
     }
 
     .btns {
-       font-size: 30px; 
-       flex: 1;
+       font-size: 30px;
+       cursor: pointer; 
+
+       @include md {
+           font-size: 40px;
+       }
+    }
+
+    .submit {
+        @include primary-btn;
+    }
+
+    .redirect {
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
     }
 }
