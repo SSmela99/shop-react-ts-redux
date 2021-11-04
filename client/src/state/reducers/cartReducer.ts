@@ -9,6 +9,10 @@ const reducer = (cart: [] = initialState, action: Action) => {
       return action.payload;
     case ActionType.ADD_TO_CART:
       return [...cart, action.payload];
+    case ActionType.REMOVE_FROM_CART:
+      return [...cart, action.payload];
+    case ActionType.CLEAR_CART:
+      return [...cart, action.payload];
     default:
       return cart;
   }

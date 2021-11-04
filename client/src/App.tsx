@@ -39,7 +39,6 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <MainPage />
-            <button onClick={() => console.log(cart)}>cart</button>
           </Route>
           <Route exact path="/register">
             <Register />

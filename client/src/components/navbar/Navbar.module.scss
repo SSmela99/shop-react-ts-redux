@@ -4,6 +4,7 @@
     @include basic-colors;
     height: 100px;
     transition: .5s;
+    z-index: 999;
 
     @include sm {
         height: 75px;
@@ -68,6 +69,16 @@
             @include sm {
                 font-size: 14px;
             }
+        }
+
+        .cartBundle {
+            @include reversed-colors;
+            border-radius: 50%;
+            position: absolute;
+            width: 20px;
+            height: 25px;
+            top: 20%;
+            right: 0;
         }
     }
 }

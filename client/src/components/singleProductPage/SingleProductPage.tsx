@@ -10,6 +10,8 @@ import { bindActionCreators } from "redux";
 import styles from "./SingleProductPage.module.scss";
 import clsx from "clsx";
 
+import Loader from "src/components/utils/Loader";
+
 const SingleProductPage = () => {
   const dispatch = useDispatch();
 
@@ -59,7 +61,7 @@ const SingleProductPage = () => {
             </div>
           </div>
         ) : (
-          <p>Loading...</p>
+          <Loader />
         )}
       </div>
     </div>
