@@ -5,8 +5,19 @@ import { Action } from "../actions/index";
 import * as api from "../../api";
 
 interface Product {
+  catergory: string;
+  description: string;
   id: number;
+  image: string;
+  price: number;
+  rating?: object[];
+  title: string;
   count: number;
+}
+
+interface Login {
+  username: string;
+  password: string;
 }
 
 export const fetchProducts = () => async (dispatch: Dispatch<Action>) => {
@@ -81,5 +92,24 @@ export const deleteFromCart = (product: Product) => {
   localStorage.setItem("cart", JSON.stringify(newCart));
   return (dispatch: Dispatch<Action>) => {
     dispatch({ type: ActionType.CLEAR_CART, payload: newCart });
+  };
+};
+
+export const signIn = (user: Login) => async (dispatch: Dispatch<Action>) => {
+  const sessionStorageUser = JSON.parse(sessionStorage.getItem("user")!);
+  console.log("session storage: ", sessionStorageUser);
+  const data = user;
+  "account" in user && sessionStorage.setItem("user", JSON.stringify(data));
+  dispatch({ type: ActionType.SIGN_IN, payload: data });
+};
+
+export const logout = (user: any) => {
+  return (dispatch: Dispatch<Action>) => {
+    user = {};
+    sessionStorage.removeItem("user");
+    dispatch({
+      type: ActionType.LOGOUT,
+      payload: user,
+    });
   };
 };

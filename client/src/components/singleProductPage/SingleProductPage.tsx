@@ -35,16 +35,11 @@ const SingleProductPage = () => {
 
   return (
     <div className={styles.mainPageContainer}>
-      <div
-        className={clsx(
-          "container d-flex align-items-center justify-content-center",
-          styles.products
-        )}
-      >
+      <div className={clsx("container py-4", styles.products)}>
         {Object.keys(product).length > 0 ? (
-          <div className={clsx("bg-white p-5 h-100", styles.product)}>
+          <div className={clsx("bg-white p-md-5 p-4 h-100", styles.product)}>
             <h1 className="mb-5">{product.title}</h1>
-            <div className="d-flex align-items-center justify-content-center">
+            <div className="d-flex align-items-center justify-content-center flex-md-row flex-column ">
               <img
                 src={product.image}
                 alt={product.title}
@@ -53,7 +48,7 @@ const SingleProductPage = () => {
               <p className={styles.description}>{product.description}</p>
             </div>
 
-            <div className="d-flex justify-content-end align-items-center mt-5">
+            <div className="d-flex justify-content-end align-items-center mt-md-5 mt-4">
               <p className="me-4 fs-4 fw-bold">{product.price} PLN</p>
               <button className={styles.btn} onClick={() => AddToCart(product)}>
                 Dodaj do koszyka!

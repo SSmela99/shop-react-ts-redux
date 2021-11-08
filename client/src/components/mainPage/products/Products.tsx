@@ -4,7 +4,7 @@ import Product from "./product/Product";
 import styles from "./Products.module.scss";
 
 import { useSelector } from "react-redux";
-import { State } from "../../../state";
+import { State } from "src/state";
 
 import Loader from "src/components/utils/Loader";
 
@@ -17,6 +17,7 @@ export interface IProduct {
     price: number;
     rating?: object[];
     title: string;
+    count: number;
   };
 }
 

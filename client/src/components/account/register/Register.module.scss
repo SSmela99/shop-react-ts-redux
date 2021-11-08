@@ -2,4 +2,19 @@
 
 .registerContainer {
     @include responsive-page;
+    padding-bottom: 20px;
+
+    input {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .btn {
+        @include primary-btn;
+    }
+
+    .link {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
