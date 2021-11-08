@@ -1,0 +1,37 @@
+@import "./src/styles/index.module.scss";
+
+.footerContainer {
+    background-color: $dark-color;
+    color: $light-color;
+    padding: 20px;
+
+    .logo {
+        width: 50px;
+
+        @include lg {
+            width: 35px;
+        }
+    }
+
+    .title {
+        font-size: 16px;
+        margin-top: 5px;
+        
+        @include lg {
+            font-size: 12px;
+        }
+    }
+
+    .me {
+        @include lg {
+            font-size: 14px;
+        }
+    }
+
+    .socials {
+        a {
+            font-size: 25px;
+            margin: 0 5px;
+        }
+    }
+}

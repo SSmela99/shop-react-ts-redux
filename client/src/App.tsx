@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state";
 
@@ -10,18 +10,16 @@ import {
   Navbar,
   MainPage,
   Register,
+  SignIn,
   SingleProductPage,
   Cart,
+  Footer,
 } from "./components/Components";
-
-import { State } from "./state";
 
 const App = () => {
   const dispatch = useDispatch();
 
-  const cart = useSelector((state: State) => state.cart);
-
-  const { fetchProducts, fetchCart } = bindActionCreators(
+  const { fetchProducts, fetchCart, signIn } = bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -29,6 +27,10 @@ const App = () => {
   useEffect(() => {
     fetchCart();
     fetchProducts();
+    if (JSON.parse(sessionStorage.getItem("user")!) !== null) {
+      let user = JSON.parse(sessionStorage.getItem("user")!);
+      signIn(user);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -43,6 +45,9 @@ const App = () => {
           <Route exact path="/register">
             <Register />
           </Route>
+          <Route exact path="/login">
+            <SignIn />
+          </Route>
           <Route exact path="/product/:id">
             <SingleProductPage />
           </Route>
@@ -50,6 +55,7 @@ const App = () => {
             <Cart />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </>
   );

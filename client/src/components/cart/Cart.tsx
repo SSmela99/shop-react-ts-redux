@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 import * as React from "react";
 
 import { Link } from "react-router-dom";
@@ -13,6 +13,15 @@ import { bindActionCreators } from "redux";
 import { IoMdAddCircleOutline as Add } from "react-icons/io";
 import { AiOutlineMinusCircle as Minus } from "react-icons/ai";
 import { MdDeleteForever as Delete } from "react-icons/md";
+
+export interface ICart {
+  id: number;
+  price: number;
+  image: string;
+  title: string;
+  description: string;
+  count: number;
+}
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -40,13 +49,15 @@ const Cart = () => {
 
   React.useEffect(() => {
     const getSummary = () => {
-      const arr = [];
+      const arr: number[] | string[] | [] = [];
       if (cart.length === 0) {
         setSummaryPrice(0);
       } else {
-        cart.forEach((x) => {
+        cart.forEach((x: any) => {
           arr.push(x.price * x.count);
-          setSummaryPrice(arr.reduce((a, b) => a + b).toFixed(2));
+          setSummaryPrice(
+            arr.reduce((a: number, b: number) => a + b).toFixed(2)
+          );
         });
       }
     };
@@ -72,8 +83,7 @@ const Cart = () => {
             className={clsx("bg-white w-100 p-md-5 p-4 my-lg-5", styles.border)}
           >
             <h1 className="mb-lg-5">Koszyk</h1>
-            {/* @ts-ignore */}
-            {cart.map((product) => (
+            {cart.map((product: ICart) => (
               <div
                 className={clsx(
                   "d-md-flex text-md-start text-center align-items-center justify-content-between w-100 my-md-4",

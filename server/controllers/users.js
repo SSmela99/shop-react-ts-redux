@@ -28,10 +28,8 @@ export const signIn = async (req, res) => {
 
   if (!username || !password) {
     return res.send({
-      info: {
-        success: false,
-        message: "Wiersze nie mogą być puste!",
-      },
+      success: false,
+      message: "Wiersze nie mogą być puste!",
     });
   } else {
     const validateUser = async (password, username) => {
@@ -49,7 +47,14 @@ export const signIn = async (req, res) => {
           return res.status(200).json({
             success: true,
             message: `Zalogowałeś się ${username}`,
-            user,
+            account: {
+              id: user._id,
+              username: user.username,
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email,
+              date: user.date,
+            },
           });
         } else {
           return res.status(200).json({

@@ -1,4 +1,5 @@
 import { ActionType } from "../action-types";
+
 interface GetProducts {
   type: ActionType.FETCH_ALL;
   payload: object[];
@@ -6,7 +7,7 @@ interface GetProducts {
 
 interface getCart {
   type: ActionType.FETCH_CART;
-  payload: [];
+  payload: object[];
 }
 
 interface AddToCart {
@@ -24,9 +25,21 @@ interface ClearCart {
   payload: object;
 }
 
+interface SignIn {
+  type: ActionType.SIGN_IN;
+  payload: object;
+}
+
+interface Logout {
+  type: ActionType.LOGOUT;
+  payload: object;
+}
+
 export type Action =
   | GetProducts
   | getCart
   | AddToCart
   | RemoveFromCart
-  | ClearCart;
+  | ClearCart
+  | SignIn
+  | Logout;

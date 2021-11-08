@@ -10,12 +10,23 @@ import { bindActionCreators } from "redux";
 
 import { Link } from "react-router-dom";
 
+export interface IProps {
+  catergory: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating?: object[];
+  title: string;
+  count: number;
+}
+
 const Product: React.FC<IProduct> = ({ product }: IProduct) => {
   const dispatch = useDispatch();
 
   const { addToCart, fetchCart } = bindActionCreators(actionCreators, dispatch);
 
-  const AddToCart = (product: any) => {
+  const AddToCart = (product: IProps) => {
     addToCart(product);
     fetchCart();
   };
