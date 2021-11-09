@@ -31,6 +31,9 @@ app.use(
 app.use(cors());
 
 app.use("/", users);
+app.get("/", (req, res) => {
+  res.send("hello to shop API");
+});
 
 mongoose
   .connect(process.env.CONNECTION_URL, config)

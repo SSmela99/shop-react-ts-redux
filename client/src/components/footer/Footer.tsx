@@ -32,7 +32,11 @@ const Footer = () => {
             >
               <Github />
             </a>
-            <a href="/#" target="_blank" rel="noreferrer">
+            <a
+              href="https://cocky-gates-77c9f8.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Portfolio />
             </a>
           </div>

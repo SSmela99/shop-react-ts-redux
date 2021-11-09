@@ -48,7 +48,10 @@ const SignIn = () => {
     e.preventDefault();
     setInfo("");
 
-    const data = await axios.post("http://localhost:5000/signin", userData);
+    const data = await axios.post(
+      "https://backend-for-shop.herokuapp.com/signin",
+      userData
+    );
 
     const { message } = data.data;
 
