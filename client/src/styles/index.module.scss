@@ -67,7 +67,7 @@ $screen-xxl-min: 1400px;
     transition: .5s;
 
     @include sm {
-        height: calc(max-content + 100px);
+        height: max-content;
         min-height: calc(100vh - 75px);
         padding-bottom: 20px;
         margin-top: 75px;
